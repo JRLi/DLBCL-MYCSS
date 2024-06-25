@@ -15,6 +15,7 @@ soma = soma[,grepl('MYC',colnames(soma)),drop=F]
 data = Reddy_pmid28985567_exp # expression
 
 info = Reddy_pmid28985567_clinical # clinical
+info = info[!is.na(info$Overall.Survival.years) & !is.na(info$Censored),]
 se = c("age.at.diagnosis", "Gender", "IPI", "ABC.GCB.RNAseq")
 info = info[,se]
 colnames(info) = c("age", "gender", "stage", "type")
